@@ -13,12 +13,14 @@ public class Employee {
     @Column(name = "employee_id")
     private Long employeeId;
 
-
     @Column(name = "employee_name", nullable = false)
     private String username;
 
     @Column(name = "employee_lastname", nullable = false)
     private String lastname;
+
+    @Column(name = "employee_password", nullable = false)
+    private String password;
 
     @Column(name = "employee_age", nullable = false)
     private int age;
@@ -48,6 +50,14 @@ public class Employee {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getAge() {
