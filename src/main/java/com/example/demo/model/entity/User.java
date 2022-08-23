@@ -1,44 +1,53 @@
 package com.example.demo.model.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_id")
-    private Long employeeId;
+    @Column(name = "id")
+    private Long userId;
 
-    @Column(name = "employee_name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String username;
 
-    @Column(name = "employee_lastname", nullable = false)
+    @Column(name = "lastname", nullable = false)
     private String lastname;
 
-    @Column(name = "employee_password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "employee_age", nullable = false)
+    @Column(name = "age", nullable = false)
     private int age;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<EmployeeRole> employeeRoles;
-    @JoinTable(name = "employee_role",
-            joinColumns = {@JoinColumn(name = "employee_id")},
-            inverseJoinColumns = { @JoinColumn(name = "employee_role_id")})
+    private Set<UserRole> employeeRoles;
 
-    public Long getEmployeeId() {
-        return employeeId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
+
+    public Set<UserRole> getEmployeeRoles() {
+        return employeeRoles;
+    }
+
+    public void setEmployeeRoles(Set<UserRole> employeeRoles) {
+        this.employeeRoles = employeeRoles;
+    }
+
+    @JoinTable(name = "user_role",
+            joinColumns = {@JoinColumn(name = "id")},
+            inverseJoinColumns = { @JoinColumn(name = "role_id")})
+
+
 
     public String getUsername() {
         return username;
@@ -72,11 +81,11 @@ public class Employee {
         this.age = age;
     }
 
-    public Set<EmployeeRole> getEmployeeRoles() {
+    public Set<UserRole> getUserRoles() {
         return employeeRoles;
     }
 
-    public void setEmployeeRoles(Set<EmployeeRole> employeeRoles) {
+    public void setUserRoles(Set<UserRole> employeeRoles) {
         this.employeeRoles = employeeRoles;
     }
 }

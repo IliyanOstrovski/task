@@ -1,7 +1,7 @@
 package com.example.demo.model.enums;
 
-public enum EmployeeRoleEnum {
+public enum UserRoleEnum {
     DIRECTOR,
     BOSS,
-    EMPLOYEE
+    USER
 }
