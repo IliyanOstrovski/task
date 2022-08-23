@@ -12,10 +12,10 @@ public class User {
     @Column(name = "id")
     private Long userId;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "lastname", nullable = false)
+    @Column(name = "lastname", nullable = false, unique = true)
     private String lastname;
 
     @Column(name = "password", nullable = false)

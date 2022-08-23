@@ -3,6 +3,7 @@ package com.example.demo.web;
 import com.example.demo.model.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,23 @@ public class UserController {
     }
 
     @PostMapping({"/registerNewEmployee"})
-    public User registerNewUser(@RequestBody User employee){
-        return userService.registerNewUser(employee);
+    public User registerNewUser(@RequestBody User user){
+        return userService.registerNewUser(user);
     }
+
+    @GetMapping({"/forDirector"})
+    public String forDirector(){
+        return "This URL is for Director only!";
+    }
+
+    @GetMapping({"/forBoss"})
+    public String forBoss(){
+        return "This URL is for Boss only!";
+    }
+
+    @GetMapping({"/ forUser"})
+    public String forUser(){
+        return "This URL is for User only!";
+    }
+
 }
