@@ -5,14 +5,16 @@ import com.example.demo.model.enums.EmployeeRoleEnum;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "employee_role")
 public class EmployeeRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_id")
+    @Column(name = "employee_role_id")
     private Long employeeId;
 
     @Column(nullable = false)
+    private String employee_role_name;
+
     @Enumerated(EnumType.STRING)
     private EmployeeRoleEnum employeeRole;
 

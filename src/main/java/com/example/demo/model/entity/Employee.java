@@ -3,6 +3,7 @@ package com.example.demo.model.entity;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
@@ -26,7 +27,10 @@ public class Employee {
     private int age;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<EmployeeRole> employeeRoles = new ArrayList<>();
+    private Set<EmployeeRole> employeeRoles;
+    @JoinTable(name = "employee_role",
+            joinColumns = {@JoinColumn(name = "employee_id")},
+            inverseJoinColumns = { @JoinColumn(name = "employee_role_id")})
 
     public Long getEmployeeId() {
         return employeeId;
@@ -68,11 +72,11 @@ public class Employee {
         this.age = age;
     }
 
-    public List<EmployeeRole> getEmployeeRoles() {
+    public Set<EmployeeRole> getEmployeeRoles() {
         return employeeRoles;
     }
 
-    public void setEmployeeRoles(List<EmployeeRole> employeeRoles) {
+    public void setEmployeeRoles(Set<EmployeeRole> employeeRoles) {
         this.employeeRoles = employeeRoles;
     }
 }
