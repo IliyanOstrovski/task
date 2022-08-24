@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -19,10 +20,15 @@ public class UserController {
         userService.initUserRolesAndUser();
     }
 
+    @GetMapping("/users")
+    public List<User> getUsers(){
+        return userService.getUsers();
+    }
 
     @PostMapping("/users/post")
     public void createUser(@RequestBody User user) {
         userService.save(user);
     }
+
 
 }
