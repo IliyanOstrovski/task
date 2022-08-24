@@ -27,6 +27,10 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<UserRole> employeeRoles;
+    @JoinTable(name = "user_role",
+            joinColumns = {@JoinColumn(name = "id")},
+            inverseJoinColumns = { @JoinColumn(name = "role_id")})
+
 
     public Long getUserId() {
         return userId;
@@ -43,12 +47,6 @@ public class User {
     public void setEmployeeRoles(Set<UserRole> employeeRoles) {
         this.employeeRoles = employeeRoles;
     }
-
-    @JoinTable(name = "user_role",
-            joinColumns = {@JoinColumn(name = "id")},
-            inverseJoinColumns = { @JoinColumn(name = "role_id")})
-
-
 
     public String getUsername() {
         return username;

@@ -10,6 +10,7 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "deparment_id")
     private long id;
 
     @OneToMany(fetch = FetchType.EAGER)
