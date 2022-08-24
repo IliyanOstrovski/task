@@ -18,44 +18,6 @@ public class SecurityConfig {
         return new Pbkdf2PasswordEncoder();
     }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.
-                authorizeRequests().
-
-                requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
-
-                antMatchers("/", "/login", "/register").permitAll().
-
-                anyRequest().
-
-                authenticated().
-
-                and().
-
-                formLogin().
-
-                loginPage("/login").
-
-                usernameParameter("username").
-
-                passwordParameter("password").
-
-                defaultSuccessUrl("/home").
-
-                failureForwardUrl("/").
-                and().
-
-                logout().
-
-                logoutUrl("/").
-
-                invalidateHttpSession(true).
-                deleteCookies("JSESSIONID");
-
-
-        return http.build();
-    }
 
     @Bean
     public TaskUserDetailsService userDetailsService(UserRepository userRepository) {

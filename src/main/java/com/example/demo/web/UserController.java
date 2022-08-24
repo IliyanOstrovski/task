@@ -3,14 +3,12 @@ package com.example.demo.web;
 import com.example.demo.model.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -22,6 +20,9 @@ public class UserController {
     }
 
 
-
+    @PostMapping("/users/post")
+    public void createUser(@RequestBody User user) {
+        userService.save(user);
+    }
 
 }
