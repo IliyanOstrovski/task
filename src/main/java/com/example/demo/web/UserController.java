@@ -31,11 +31,6 @@ public class UserController {
         return "This URL is for Director only!";
     }
 
-    @GetMapping({"/forBoss"})
-    public String forBoss(){
-        return "This URL is for Boss only!";
-    }
-
     @GetMapping({"/ forUser"})
     public String forUser(){
         return "This URL is for User only!";

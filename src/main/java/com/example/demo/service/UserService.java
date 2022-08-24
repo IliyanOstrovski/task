@@ -29,15 +29,9 @@ public class UserService {
         directorRole.setUserRole(UserRoleEnum.DIRECTOR);
         userRoleRepository.save(directorRole);
 
-        UserRole bossRole = new UserRole();
-        bossRole.setUserRole(UserRoleEnum.BOSS);
-        userRoleRepository.save(bossRole);
-
         UserRole userRole = new UserRole();
         userRole.setUserRole(UserRoleEnum.USER);
         userRoleRepository.save(userRole);
-
-
 
         User directorUser = new User();
         directorUser.setUsername("iliyan");
@@ -48,16 +42,6 @@ public class UserService {
         directorRoles.add(directorRole);
         directorUser.setUserRoles(directorRoles);
         userRepository.save(directorUser);
-
-        User bossUser = new User();
-        bossUser.setUsername("gosho");
-        bossUser.setLastname("petrov");
-        bossUser.setPassword("1111");
-        bossUser.setAge(20);
-        Set<UserRole> bossRoles = new HashSet<>();
-        bossRoles.add(bossRole);
-        bossUser.setUserRoles(bossRoles);
-        userRepository.save(bossUser);
 
         User user = new User();
         user.setUsername("koko");
