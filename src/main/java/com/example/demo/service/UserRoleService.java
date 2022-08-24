@@ -11,7 +11,7 @@ public class UserRoleService {
     private UserRoleRepository employeeRoleRepository;
 
 
-    public UserRole createNewRole(UserRole employeeRole){
-       return employeeRoleRepository.save(employeeRole);
+    public UserRole createNewRole(UserRole employeeRole) {
+        return employeeRoleRepository.save(employeeRole);
     }
 }

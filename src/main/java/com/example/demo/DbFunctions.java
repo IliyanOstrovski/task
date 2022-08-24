@@ -4,19 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DbFunctions {
-    public Connection connection_to_db(String dbname, String user, String password){
+    public Connection connection_to_db(String dbname, String user, String password) {
         Connection conn = null;
 
         try {
             Class.forName("org.postgresql.Driver");
-            conn=DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + dbname, user, password);
-            if (conn!=null){
+            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + dbname, user, password);
+            if (conn != null) {
                 System.out.println("Connection established");
-            }
-            else {
+            } else {
                 System.out.println("Connection failed");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
         return conn;

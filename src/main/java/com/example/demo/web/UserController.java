@@ -17,22 +17,22 @@ public class UserController {
     private UserService userService;
 
     @PostConstruct
-    public void initRolesAndUsers(){
+    public void initRolesAndUsers() {
         userService.initUserRolesAndUser();
     }
 
     @PostMapping({"/registerNewEmployee"})
-    public User registerNewUser(@RequestBody User user){
+    public User registerNewUser(@RequestBody User user) {
         return userService.registerNewUser(user);
     }
 
     @GetMapping({"/forDirector"})
-    public String forDirector(){
+    public String forDirector() {
         return "This URL is for Director only!";
     }
 
     @GetMapping({"/ forUser"})
-    public String forUser(){
+    public String forUser() {
         return "This URL is for User only!";
     }
 

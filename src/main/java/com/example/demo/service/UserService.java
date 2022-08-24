@@ -20,11 +20,11 @@ public class UserService {
     @Autowired
     private UserRoleRepository userRoleRepository;
 
-    public User registerNewUser(User user){
-       return userRepository.save(user);
+    public User registerNewUser(User user) {
+        return userRepository.save(user);
     }
 
-    public void initUserRolesAndUser(){
+    public void initUserRolesAndUser() {
         UserRole directorRole = new UserRole();
         directorRole.setUserRole(UserRoleEnum.DIRECTOR);
         userRoleRepository.save(directorRole);

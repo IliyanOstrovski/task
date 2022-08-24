@@ -12,7 +12,7 @@ public class UserRole {
     @Column(name = "role_id")
     private Long employeeId;
 
-    @Column(name = "user_role_name",nullable = false)
+    @Column(name = "user_role_name", nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoleEnum employeeRole;
 

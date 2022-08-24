@@ -26,10 +26,11 @@ public class User {
     private int age;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<UserRole> employeeRoles;
+    private List<UserRole> userRoles;
+
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name = "id")},
-            inverseJoinColumns = { @JoinColumn(name = "role_id")})
+            inverseJoinColumns = {@JoinColumn(name = "role_id")})
 
 
     public Long getUserId() {
@@ -38,14 +39,6 @@ public class User {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public Set<UserRole> getEmployeeRoles() {
-        return employeeRoles;
-    }
-
-    public void setEmployeeRoles(Set<UserRole> employeeRoles) {
-        this.employeeRoles = employeeRoles;
     }
 
     public String getUsername() {
@@ -80,11 +73,11 @@ public class User {
         this.age = age;
     }
 
-    public Set<UserRole> getUserRoles() {
-        return employeeRoles;
+    public List<UserRole> getUserRoles() {
+        return userRoles;
     }
 
-    public void setUserRoles(Set<UserRole> employeeRoles) {
-        this.employeeRoles = employeeRoles;
+    public void setUserRoles(List<UserRole> employeeRoles) {
+        this.userRoles = employeeRoles;
     }
 }

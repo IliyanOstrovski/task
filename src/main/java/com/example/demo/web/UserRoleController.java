@@ -14,7 +14,7 @@ public class UserRoleController {
     private UserRoleService userRoleService;
 
     @PostMapping({"createNewRole"})
-    public UserRole createNewRole(@RequestBody UserRole userRole){
-       return userRoleService.createNewRole(userRole);
+    public UserRole createNewRole(@RequestBody UserRole userRole) {
+        return userRoleService.createNewRole(userRole);
     }
 }
