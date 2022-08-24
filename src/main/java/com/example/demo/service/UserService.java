@@ -8,8 +8,7 @@ import com.example.demo.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -38,7 +37,7 @@ public class UserService {
         directorUser.setLastname("ostrovski");
         directorUser.setPassword("1111");
         directorUser.setAge(20);
-        Set<UserRole> directorRoles = new HashSet<>();
+        List<UserRole> directorRoles = new ArrayList<>();
         directorRoles.add(directorRole);
         directorUser.setUserRoles(directorRoles);
         userRepository.save(directorUser);
@@ -48,7 +47,7 @@ public class UserService {
         user.setLastname("trunski");
         user.setPassword("1111");
         user.setAge(20);
-        Set<UserRole> userRoles = new HashSet<>();
+        List<UserRole> userRoles = new ArrayList<>();
         userRoles.add(userRole);
         user.setUserRoles(userRoles);
         userRepository.save(user);
